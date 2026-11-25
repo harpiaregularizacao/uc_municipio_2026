@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>UCs CAATINGA: Fortalecendo a Conservação Municipal</title>
+<style>
+:root{--bg:#faf7f0;--surf:#fff;--ink:#23201a;--mut:#6b655a;--line:#e6dfcf;--yel:#f5b800;--teal:#1f9aa8;--grn:#4a7f2a;--pur:#8e4a94;--brn:#a85d16;--c1:#4a7f2a;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b1812;--surf:#26221a;--ink:#f3ecdc;--mut:#b0a890;--line:#3b3527;--teal:#46c3d1;--grn:#86b95f;--pur:#c286c8;--brn:#d98a43;--c1:#86b95f}}
+:root[data-theme="dark"]{--bg:#1b1812;--surf:#26221a;--ink:#f3ecdc;--mut:#b0a890;--line:#3b3527;--teal:#46c3d1;--grn:#86b95f;--pur:#c286c8;--brn:#d98a43;--c1:#86b95f}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "Source Sans 3","Segoe UI",system-ui,sans-serif}
+h1,h2,h3{font-family:"Fraunces",Georgia,serif;line-height:1.2;margin:0}
+header{background:var(--surf);border-bottom:6px solid var(--yel);padding:14px 16px;display:flex;gap:16px;align-items:center;justify-content:center;flex-wrap:wrap;text-align:center}
+.wh{background:#fff;border-radius:10px;padding:4px 10px}.wh img{height:64px;display:block}
+h1{font-size:clamp(1.1rem,3vw,1.6rem);max-width:560px}
+.fluxo{margin:0 0 20px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:8px}.fluxo img{width:100%;height:auto;display:block}
+.mun{display:flex;gap:8px;justify-content:center;align-items:center;padding:10px 12px;background:var(--bg);border-bottom:1px solid var(--line);flex-wrap:wrap}.mun span{font-weight:600;color:var(--mut)}.mun button{padding:8px 22px;border-radius:10px;border:2px solid var(--line);background:var(--surf);color:var(--ink);font:700 1rem "Fraunces",Georgia,serif;cursor:pointer}.mun button[aria-selected="true"]{background:var(--yel);border-color:var(--yel);color:#23201a}
+nav{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;padding:10px 12px;background:var(--surf);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+nav a{padding:8px 14px;border-radius:999px;color:var(--ink);text-decoration:none;font-weight:600;border:1px solid var(--line)}
+nav a[aria-current="page"]{background:var(--teal);border-color:var(--teal);color:#fff}
+main{max-width:920px;margin:0 auto;padding:20px 16px 48px}
+section.pg{display:none}section.pg.on{display:block}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--pur);outline-offset:2px}
+.btn{display:inline-block;padding:10px 16px;border-radius:10px;background:var(--teal);color:#fff;font:600 .95rem inherit;text-decoration:none;border:0;cursor:pointer}
+.btn.s{background:transparent;color:var(--ink);border:1px solid var(--line);padding:6px 10px;font-size:.82rem}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.sum,.card{background:var(--surf);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px}
+.big{font:700 2.2rem "Fraunces",Georgia,serif;color:var(--teal)}
+.bar{height:12px;border-radius:6px;background:var(--line);overflow:hidden}.bar i{display:block;height:100%;background:var(--c1)}
+.meta,.hint{color:var(--mut);font-size:.88rem}
+.prod{background:var(--surf);border:1px solid var(--line);border-left:6px solid var(--c);border-radius:12px;margin-bottom:12px}
+.prod>summary{list-style:none;cursor:pointer;padding:12px 16px;display:grid;grid-template-columns:1fr auto;gap:2px 12px;align-items:center}
+.prod>summary::-webkit-details-marker{display:none}
+.pn{color:var(--c);font-weight:600;font-size:.88rem}.pt{font:700 1.05rem "Fraunces",Georgia,serif}
+.pst{grid-row:1/3;grid-column:2;text-align:right;font-weight:600;font-size:.9rem}.prod .bar{grid-column:1/-1;margin-top:6px}
+.ent{border-top:1px solid var(--line);padding:10px 16px}
+.en{display:flex;justify-content:space-between;gap:8px;font-weight:600}
+.ok{color:var(--c1)}
+.dr{display:flex;align-items:center;gap:8px;padding:5px 0 5px 14px;flex-wrap:wrap}
+.dr .nm{flex:1;min-width:180px;background:none;border:0;text-align:left;font:inherit;color:var(--ink);cursor:pointer;padding:0}
+.dr .nm.on{color:var(--teal);text-decoration:underline}
+dialog{border:1px solid var(--line);border-radius:12px;background:var(--surf);color:var(--ink);padding:18px;max-width:560px;width:calc(100% - 24px)}
+dialog::backdrop{background:rgba(0,0,0,.5)}
+#vw{max-width:1100px;height:calc(100% - 24px);max-height:none;padding:0;display:none;flex-direction:column}#vw[open]{display:flex}
+.vh{display:flex;gap:10px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line)}.vh strong{flex:1}
+#vw iframe{flex:1;border:0;width:100%;background:#fff}
+input,textarea,select{width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit;margin:8px 0}
+.acts{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
+table{border-collapse:collapse;width:100%;font-size:.9rem}th,td{border:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}
+th{background:var(--grn);color:#fff}td.m{width:44px;text-align:center}td.f{background:#92d050}
+.wrap{overflow-x:auto}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.fb{display:block;width:100%;padding:18px 10px;border-radius:12px;border:1px solid var(--line);background:var(--surf);color:var(--ink);font:700 1.05rem "Fraunces",Georgia,serif;cursor:pointer;text-align:center}
+.fb.on{border-color:var(--grn)}.fb small{display:block;font:400 .8rem "Source Sans 3",sans-serif;color:var(--mut)}
+.av{border-left:4px solid var(--yel)}
+#sigf,.pf{width:100%;height:75vh;border:1px solid var(--line);border-radius:12px;background:#fff}
+li.mp{display:flex;gap:8px;align-items:center;padding:8px 0;border-top:1px solid var(--line)}li.mp button.nm{flex:1;text-align:left;background:none;border:0;font:inherit;color:var(--teal);text-decoration:underline;cursor:pointer}
+ul{list-style:none;margin:0;padding:0}
+</style>
+</head>
+<body>
+<header><div class="wh"><img src="assets/logo.jpg" alt="Logo da Associação Caatinga"></div><h1>UCs CAATINGA: FORTALECENDO A CONSERVAÇÃO MUNICIPAL</h1></header>
+<div class="mun" id="mun" role="tablist" aria-label="Município"></div>
+<nav id="nav"></nav>
+<main>
+<p class="hint" id="warn" hidden>Modo local: links, mapas e avisos ficam salvos apenas neste navegador e não são compartilhados com a equipe. Cada pessoa vê apenas o que ela mesma cadastrou neste navegador.</p>
+<figure class="fluxo" id="fluxo"><img src="assets/fluxo.jpg" alt="Fluxo das atividades: Produto 1 Plano de Trabalho; Produto 2 Coleta e análise das informações disponíveis; Produto 3 Trabalhos de campo; Produto 4 Sistematização das informações geográficas e banco de dados; Produto 5 Consultas públicas; Produto 6 Proposta final de criação das UCs"></figure>
+<section class="pg" id="acompanhamento"></section>
+<section class="pg" id="avisos"></section>
+<section class="pg" id="cronograma"></section>
+<section class="pg" id="fotos"></section>
+<section class="pg" id="sig"></section>
+<section class="pg" id="socio"></section>
+<section class="pg" id="queim"></section>
+<section class="pg" id="mapas"></section>
+</main>
+<dialog id="ed"><h2 id="edt" style="font-size:1.1rem"></h2><p class="hint" id="edh"></p><input id="edn" placeholder="Nome do mapa"><input id="edi" type="url" placeholder="Cole o link aqui" aria-label="Link"><div class="acts"><button class="btn s" id="edr">Remover link</button><button class="btn s" id="edc">Cancelar</button><button class="btn" id="eds">Salvar link</button></div></dialog>
+<dialog id="eq"><h2 style="font-size:1.1rem">Cadastrar equipe</h2><p class="hint">Cada membro cadastrado pode ser escolhido ao publicar avisos e recebe os avisos por e-mail.</p><input id="eqn" maxlength="80" placeholder="Nome" aria-label="Nome"><input id="eqm" type="email" maxlength="120" placeholder="E-mail" aria-label="E-mail"><p class="hint" id="eqe"></p><div id="eql"></div><div class="acts" style="margin-top:10px"><button class="btn s" id="eqc">Fechar</button><button class="btn" id="eqs">Cadastrar</button></div></dialog>
+<dialog id="vw"><div class="vh"><strong id="vt"></strong><a class="btn s" id="vo" target="_blank" rel="noopener">Abrir em nova aba</a><button class="btn s" id="vc">Fechar</button></div><iframe id="vf" title="Visualizador"></iframe></dialog>
+<script>
+var SHEET_URL="https://script.google.com/macros/s/AKfycbwD0RR-5g7ScPzG5dhHPu0WLFaMxfYhjJckS5Cij_0A7FNwVVTKg2Udceupa_sag32Acw/exec";
+var DRIVE="https://drive.google.com/drive/folders/13X7L6A5e9gOBnAsD41bpkndz2OtbMP1a";
+var PG=[["acompanhamento","Acompanhamento"],["avisos","Avisos"],["cronograma","Cronograma"],["fotos","Banco de fotos"],["sig","SIG"],["socio","Painel Socioeconômico"],["queim","Painel de Queimadas"],["mapas","Mapas"]];
+var P=[
+{t:"Plano de Trabalho e Metodologia",c:"--teal",both:1,e:["Plano de Trabalho e Metodologia"]},
+{t:"Coleta e Análise das Informações Disponíveis (Dados Secundários)",c:"--grn",fin:1,e:["Levantamento, coleta e análise de informações bibliográficas (Meio Físico)","Levantamento, coleta e análise de informações bibliográficas (Flora)","Levantamento, coleta e análise de informações bibliográficas (Fauna)","Levantamento, coleta e análise de informações bibliográficas (Socioeconômico)","Levantamento, coleta e análise de informações bibliográficas (Estudos Fundiários)","Levantamento, coleta e análise de informações bibliográficas (Aspectos Jurídicos)","Banco de dados georreferenciado"]},
+{t:"Trabalhos de Campo (Dados Primários)",c:"--brn",e:[],campo:1},
+{t:"Sistematização das Informações e Relatórios Técnicos",c:"--pur",fin:1,e:["Relatório da Caracterização do Meio Físico","Relatório da Caracterização da Flora","Relatório da Caracterização da Fauna","Relatório da Caracterização Socioeconômica","Relatório da Caracterização Fundiária","Relatório da Caracterização dos Aspectos Jurídicos","Relatório da Caracterização dos Impactos Ambientais","Relatório da Caracterização das Potencialidades","Relatório dos Cenários de Categorização","Poligonal preliminar das UCs (memorial descritivo e carta-imagem)"]},
+{t:"Consultas Públicas",c:"--teal",fin:1,e:["Relatório da consulta pública","Compilação das contribuições recebidas"]},
+{t:"Proposta Final de Criação das UCs",c:"--grn",fin:1,e:["Poligonal final da UC","Minuta dos Atos Legais","Versão Final dos Estudos Técnicos","Revisão e valoração das estruturas necessárias para implementação da UC"]}
+];
+var CR=[[1,"Elaborar e apresentar o Plano de Trabalho às Secretarias Municipais de Meio Ambiente de Graça e Maranguape, com a metodologia detalhada e o roteiro de execução com base na IN nº 01/2022 (SEMA, 2022).",1,2],[2,"Realizar levantamento, coleta e análise das informações bibliográficas e cartográficas dos aspectos bióticos e abióticos, socioeconômicos e fundiários.",2,5],[3,"Realizar trabalhos de campo para levantamento, coleta e análise dos aspectos bióticos (fauna e flora), abióticos (clima, geologia, solo e hidrografia), socioeconômicos e fundiários e elaborar os respectivos diagnósticos.",2,5],[4,"Elaborar mapas temáticos preliminares com as poligonais propostas para as UCs e propor cenários, categorias e poligonais.",4,5],[5,"Realizar consultas públicas para apresentação dos estudos técnicos de criação e compilar solicitações de correções e ajustes dos documentos.",5,6],[6,"Elaborar o produto técnico final de criação, com as minutas dos atos legais das 2 UCs e os documentos dos Planos de Gestão e Financiamento.",6,7]];
+var MES=["Nov/26","Dez/26","Jan/27","Fev/27","Mar/27","Abr/27","Mai/27"];
+var FT=["Meio Físico","Flora","Fauna","Socioeconômico","Fundiário","Impactos Ambientais"];
+var MN={graca:"Graça",maranguape:"Maranguape"},L={},ALLMP=[],ALLAV=[],ALLEQ=[],MUN=(function(){var q="";try{q=new URLSearchParams(location.search).get("mun")||""}catch(e){}if(q==="maranguape"||q==="graca")return q;try{return localStorage.getItem("ucs-mun")==="maranguape"?"maranguape":"graca"}catch(e){return"graca"}})(),db=null,user=null,uid=null,NM={},ed=null;
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function url(k){var x=L[MUN+"_"+k];return x&&x.url}
+function embed(u,pdf){var m=u.match(/\/d\/([\w-]+)/)||u.match(/[?&]id=([\w-]+)/);return pdf&&m&&/drive\.google/.test(u)?"https://drive.google.com/file/d/"+m[1]+"/preview":u}
+function dr(k,lab,ty,cx){var u=url(k);return'<div class="dr"><button class="nm'+(u?' on':'')+'" data-o="'+k+'" data-t="'+ty+'">'+lab+'</button><button class="btn s" data-e="'+k+'" data-t="'+ty+'" data-l="'+esc((cx?cx+' \u2013 ':'')+lab)+'">'+(u?'Alterar link do documento':'Carregar o link do documento')+'</button></div>'}
+function pasta(k,cx){var u=url(k),l=esc((cx?cx+' \u2013 ':'')+'Pasta do Google Drive');return'<div class="dr"><span class="hint" style="flex:1;min-width:180px">Pasta de arquivos no Google Drive</span>'+(u?'<button class="btn" style="padding:6px 10px;font-size:.82rem" data-o="'+k+'" data-t="pasta">Acessar pasta do Google Drive</button><button class="btn s" data-e="'+k+'" data-t="pasta" data-l="'+l+'">Alterar</button>':'<button class="btn s" data-e="'+k+'" data-t="pasta" data-l="'+l+'">Carregar pasta do Google Drive</button>')+'</div>'}
+function selOpts(){var s="";try{s=localStorage.getItem("ucs-nome")||""}catch(e){}return ALLEQ.length?'<option value="">Selecione seu nome</option>'+ALLEQ.map(function(m){return'<option'+(m.nome===s?' selected':'')+'>'+esc(m.nome)+'</option>'}).join(""):'<option value="">Nenhum membro cadastrado</option>'}
+function rEq(){$("eql").innerHTML=ALLEQ.length?ALLEQ.map(function(m){return'<div class="dr"><span class="nm" style="cursor:default">'+esc(m.nome)+'</span><button class="btn s" data-eqd="'+esc(m.id)+'">Remover</button></div>'}).join(""):'<p class="hint">Nenhum membro cadastrado.</p>'}
+function rAcomp(){
+ var td=0,tt=0,h="";
+ P.forEach(function(p,pi){var d=0,n=0,rows="";
+  p.e.forEach(function(nm,k){var w=url("e"+pi+"_"+k+"_w"),f=p.both?url("e"+pi+"_"+k+"_f"):null;n+=p.both?2:1;if(w)d++;if(f)d++;
+   rows+='<div class="ent"><div class="en"><span>'+nm+'</span><span class="'+(f||w?'ok':'hint')+'">'+(f?'Finalizado':w?'Em elaboração':'Pendente')+'</span></div>'+dr("e"+pi+"_"+k+"_w","Documento em elaboração (Word)","w",nm)+(p.both?dr("e"+pi+"_"+k+"_f","Documento finalizado (PDF)","pdf",nm):'')+pasta("e"+pi+"_"+k+"_pasta",nm)+'</div>'});
+  if(p.fin){var fu=url("e"+pi+"_fin_f");n++;if(fu)d++;
+   rows+='<div class="ent"><div class="en"><span>Documento final</span><span class="'+(fu?'ok':'hint')+'">'+(fu?'Finalizado':'Pendente')+'</span></div>'+dr("e"+pi+"_fin_f","Documento finalizado (PDF)","pdf","Produto "+(pi+1)+" \u2013 Documento final")+pasta("e"+pi+"_fin_pasta","Produto "+(pi+1)+" \u2013 Documento final")+'</div>'}
+  if(p.campo){n=1;var c=L[MUN+"_campo"]||{};if(c.ini&&c.fim)d=1;
+   rows+='<div class="ent"><div class="en"><span>Data da realização das atividades de campo</span><span class="'+(d?'ok':'hint')+'">'+(d?'Informada':'Pendente')+'</span></div><div class="dr"><label>Início <input type="date" id="cin" style="width:auto;margin:0" value="'+(c.ini||"")+'"></label><label>Fim <input type="date" id="cfi" style="width:auto;margin:0" value="'+(c.fim||"")+'"></label><button class="btn s" data-campo="1">Salvar datas</button><span class="hint" id="cer"></span></div></div>'}
+  td+=d;tt+=n;
+  var o=document.querySelector('details[data-p="'+pi+'"]');
+  h+='<details class="prod" style="--c:var('+p.c+')" data-p="'+pi+'"'+(o&&o.open?' open':'')+'><summary><span class="pn">Produto '+(pi+1)+'</span><span class="pt">'+p.t+'</span><span class="pst">'+d+'/'+n+'<br>itens</span><div class="bar"><i style="width:'+d/n*100+'%"></i></div></summary>'+rows+'</details>'});
+ $("acompanhamento").innerHTML='<div class="top"><h2>Acompanhamento das entregas \u2013 '+MN[MUN]+'</h2><a class="btn" href="'+DRIVE+'" target="_blank" rel="noopener">Drive do projeto</a></div><div class="sum"><div class="big">'+Math.round(td/tt*100)+'%</div><div class="meta">'+td+' de '+tt+' itens concluídos. Contam todos os documentos com link carregado (Word em elaboração e PDF finalizado); o Produto 3 conta quando as datas de início e fim são informadas.</div><div class="bar" style="margin-top:10px"><i style="width:'+td/tt*100+'%"></i></div></div>'+h}
+function rCron(){
+ var h='<h2 style="margin-bottom:12px">Cronograma de execução</h2><div class="wrap"><table><tr><th rowspan="2">Produto</th><th rowspan="2">Descrição</th><th colspan="7">Mês (iniciando em nov de 2026)</th></tr><tr>'+MES.map(function(m,i){return'<th title="'+m+'">'+(i+1)+'<br><small>'+m+'</small></th>'}).join("")+'</tr>';
+ CR.forEach(function(r){h+='<tr><td>'+r[0]+'</td><td>'+r[1]+'</td>'+MES.map(function(m,i){return'<td class="m'+(i+1>=r[2]&&i+1<=r[3]?' f':'')+'"></td>'}).join("")+'</tr>'});
+ $("cronograma").innerHTML=h+'</table></div><p class="hint">Duração total prevista: 7 meses.</p>'}
+function rFotos(){
+ $("fotos").innerHTML='<h2 style="margin-bottom:6px">Banco de fotos</h2><p class="hint">Fotos obtidas em campo, organizadas em pastas do Google Drive.</p><div class="fg">'+FT.map(function(n,i){var u=url("f"+i);return'<div><button class="fb'+(u?' on':'')+'" data-o="f'+i+'" data-t="pasta">'+n+'<small>'+(u?'Abrir pasta':'Aguardando link')+'</small></button><button class="btn s" style="margin-top:6px;width:100%" data-e="f'+i+'" data-t="pasta" data-l="Pasta de fotos – '+n+'">'+(u?'Alterar link':'Carregar link Google Drive')+'</button></div>'}).join("")+'</div>'}
+function rSig(){var u=url("sig");
+ $("sig").innerHTML='<div class="top"><h2>SIG do projeto</h2><button class="btn s" data-e="sig" data-t="sig" data-l="Página HTML do SIG">'+(u?'Alterar link do SIG':'Carregar link do SIG')+'</button></div>'+(u?'<iframe id="sigf" title="SIG do projeto" src="'+esc(u)+'"></iframe><p class="hint"><a href="'+esc(u)+'" target="_blank" rel="noopener">Abrir o SIG em nova aba</a></p>':'<div class="card hint">Nenhum SIG carregado. Use o botão acima para informar o link da página HTML do SIG.</div>')}
+function rMapas(){var u=url("mapasdir"),MP=ALLMP.filter(function(m){return m.mun==MUN});
+ $("mapas").innerHTML='<div class="top"><h2>Mapas</h2><div><button class="btn s" data-e="mapasdir" data-t="pasta" data-l="Pasta de mapas no Google Drive">'+(u?'Alterar pasta':'Carregar pasta de mapas')+'</button> '+(u?'<a class="btn" href="'+esc(u)+'" target="_blank" rel="noopener">Abrir pasta</a> ':'')+'<button class="btn" data-add="1">Adicionar mapa (PDF)</button></div></div><div class="card">'+(MP.length?'<ul>'+MP.map(function(m){return'<li class="mp"><button class="nm" data-om="'+m.id+'">'+esc(m.title)+'</button><button class="btn s" data-dm="'+m.id+'" aria-label="Remover '+esc(m.title)+'">Remover</button></li>'}).join("")+'</ul>':'<span class="hint">Nenhum mapa listado ainda.</span>')+'</div>'}
+async function rAvisos(){
+ var AV=ALLAV.filter(function(a){return a.mun==MUN}),ids=[];AV.forEach(function(a){if(a.uid&&ids.indexOf(a.uid)<0)ids.push(a.uid)});
+ if(user&&ids.length){try{var ps=await user.profiles(ids);ids.forEach(function(i){NM[i]=ps[i]&&ps[i].name})}catch(e){}}
+ $("avisos").innerHTML='<div class="top"><h2>Quadro de avisos</h2><button class="btn s" data-eq="1">Cadastrar equipe</button></div><div class="card"><select id="avn" aria-label="Seu nome">'+selOpts()+'</select><textarea id="avt" rows="3" maxlength="1000" placeholder="Deixe um recado para a equipe do projeto"></textarea><div class="acts"><button class="btn" id="avb">Publicar aviso</button></div><p class="hint" id="ave"></p></div>'+(AV.length?AV.map(function(a){return'<div class="card av"><div class="meta">'+esc(a.name||NM[a.uid]||"Membro do projeto")+' · '+new Date(a.ts).toLocaleString("pt-BR")+'</div><div style="white-space:pre-wrap">'+esc(a.text)+'</div>'+(a.uid&&a.uid===uid?'<button class="btn s" style="margin-top:8px" data-da="'+a.id+'">Apagar</button>':'')+'</div>'}).join(""):'<p class="hint">Nenhum aviso ainda.</p>')}
+function rPainel(id,k,t){var u=url(k);$(id).innerHTML='<div class="top"><h2>'+t+'</h2><button class="btn s" data-e="'+k+'" data-t="sig" data-l="Página HTML – '+t+'">'+(u?'Alterar link do painel':'Carregar link do painel')+'</button></div>'+(u?'<iframe class="pf" title="'+t+'" src="'+esc(u)+'"></iframe><p class="hint"><a href="'+esc(u)+'" target="_blank" rel="noopener">Abrir em nova aba</a></p>':'<div class="card hint">Nenhum painel carregado. Use o botão acima para informar o link da página HTML.</div>')}
+function rSocio(){rPainel("socio","painelsocio","Painel Socioeconômico")}
+function rQueim(){rPainel("queim","painelqueim","Painel de Queimadas")}
+var R={acompanhamento:rAcomp,cronograma:rCron,fotos:rFotos,sig:rSig,socio:rSocio,queim:rQueim,mapas:rMapas,avisos:rAvisos};
+function cur(){var h=location.hash.slice(1);return R[h]?h:"acompanhamento"}
+function render(w){var c=cur();if(w&&w!==c)return;
+ $("mun").innerHTML='<span>Município:</span>'+["graca","maranguape"].map(function(m){return'<button role="tab" data-mun="'+m+'" aria-selected="'+(m===MUN)+'">'+MN[m]+'</button>'}).join("");
+ $("nav").innerHTML=PG.map(function(p){return'<a href="#'+p[0]+'"'+(p[0]===c?' aria-current="page"':'')+'>'+p[1]+'</a>'}).join("");
+ PG.forEach(function(p){$(p[0]).classList.toggle("on",p[0]===c)});$("fluxo").style.display=c==="acompanhamento"?"":"none";R[c]()}
+function guard(f){if(!db){$("warn").hidden=false;return false}return true}
+function edit(k,t,l){ed={k:MUN+"_"+k};$("edt").textContent=l;$("edn").style.display="none";$("edh").textContent=t=="w"?"Cole o link do arquivo Word no Google Drive.":t=="sig"?"Cole o link da página HTML (SIG ou painel).":t=="pasta"?"Cole o link da pasta do Google Drive.":"Cole o link do PDF no Google Drive (compartilhado com quem for acessar).";$("edi").value=url(k)||"";$("edr").style.display=url(k)?"":"none";$("ed").showModal()}
+function open_(k,t,title){var u=url(k);if(!u){edit(k,t,title||"Carregar link");return}
+ if(t=="pasta"||t=="w"){window.open(u,"_blank","noopener");return}
+ $("vt").textContent=title||"Documento";$("vo").href=u;$("vf").src=embed(u,t=="pdf");$("vw").showModal()}
+document.addEventListener("click",function(e){
+ var b=e.target.closest("button");if(!b)return;var d=b.dataset;
+ if(d.e){if(guard())edit(d.e,d.t,d.l||"Carregar link")}
+ else if(d.o)open_(d.o,d.t,b.textContent);
+ else if(d.add){if(!guard())return;ed={k:null};$("edt").textContent="Adicionar mapa (PDF)";$("edh").textContent="Informe o nome e o link do PDF no Google Drive.";$("edn").style.display="";$("edn").value="";$("edi").value="";$("edr").style.display="none";$("ed").showModal()}
+ else if(d.campo){if(!guard())return;var a=$("cin").value,z=$("cfi").value;if(a&&z&&z<a){$("cer").textContent="A data de fim não pode ser anterior à de início.";return}db.collection("links").doc(MUN+"_campo").set({ini:a,fim:z}).catch(function(){$("cer").textContent="Não foi possível salvar."})}
+ else if(d.mun){MUN=d.mun;try{localStorage.setItem("ucs-mun",MUN)}catch(e){}try{history.replaceState(null,"",location.pathname+"?mun="+MUN+location.hash)}catch(e){}render()}
+ else if(d.om){var m=ALLMP.filter(function(x){return x.id==d.om})[0];$("vt").textContent=m.title;$("vo").href=m.url;$("vf").src=embed(m.url,true);$("vw").showModal()}
+ else if(d.dm){db.collection("mapas").doc(d.dm).delete().catch(function(){})}
+ else if(d.da){db.collection("avisos").doc(d.da).delete().catch(function(){})}
+ else if(b.id=="avb"){if(!guard())return;var t=$("avt").value.trim(),nm=$("avn").value,er=$("ave");
+  if(!ALLEQ.length){er.textContent="Cadastre a equipe antes de publicar avisos.";return}
+  if(!nm){er.textContent="Selecione seu nome na lista.";return}
+  if(!t){er.textContent="Escreva o aviso.";return}
+  try{localStorage.setItem("ucs-nome",nm)}catch(e){}
+  er.textContent="Publicando...";var id=Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+  db.collection("avisos").doc(id).set({uid:uid,mun:MUN,name:nm,text:t,site:location.origin+location.pathname,ts:Date.now()}).then(function(j){var e2=$("ave");if(!e2)return;
+   e2.textContent=j&&j.local?"Aviso publicado. Modo local: e-mails não são enviados.":j&&j.ok?(typeof j.sent==="number"?(j.sent?"Aviso publicado. E-mail enviado a "+j.sent+" membro(s).":(j.limited?"Aviso publicado, mas o limite de envios foi atingido e o e-mail não foi enviado.":(j.mailError?"Aviso publicado, mas o envio de e-mail falhou: "+j.mailError+" Autorize o script (veja o LEIA-ME).":"Aviso publicado. Nenhum e-mail enviado, pois não há membros cadastrados na planilha."))):"Aviso publicado. Atualize o Apps Script para enviar e-mails."):"Não foi possível publicar. O aviso pode não ter sido salvo."})}
+ else if(d.eq){rEq();$("eqe").textContent="";$("eq").showModal()}
+ else if(d.eqd){db.collection("equipe").doc(d.eqd).delete()}
+});
+$("eds").onclick=function(){var v=$("edi").value.trim();if(v&&!/^https?:\/\//i.test(v)){$("edh").textContent="O link precisa começar com https://";return}
+ if(ed.k===null){var n=$("edn").value.trim();if(!v||!n){$("edh").textContent="Informe o nome e o link.";return}var id=Date.now().toString(36);db.collection("mapas").doc(id).set({title:n,url:v,mun:MUN,ts:Date.now()}).catch(function(){})}
+ else if(v)db.collection("links").doc(ed.k).set({url:v}).catch(function(){});else db.collection("links").doc(ed.k).delete().catch(function(){});
+ $("ed").close()};
+$("edr").onclick=function(){db.collection("links").doc(ed.k).delete().catch(function(){});$("ed").close()};
+$("eqc").onclick=function(){$("eq").close()};
+$("eqs").onclick=function(){var n=$("eqn").value.trim(),e=$("eqm").value.trim().toLowerCase(),m=$("eqe");
+ if(!n){m.textContent="Informe o nome.";return}
+ if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)){m.textContent="Informe um e-mail válido.";return}
+ if(ALLEQ.some(function(x){return x.nome.toLowerCase()===n.toLowerCase()})){m.textContent="Já existe um membro com esse nome.";return}
+ m.textContent="Salvando...";
+ db.collection("equipe").doc("m"+Date.now().toString(36)+Math.random().toString(36).slice(2,5)).set({nome:n,email:e}).then(function(j){var m2=$("eqe");if(!m2)return;
+  if(j&&(j.ok||j.local)){m2.textContent="Membro cadastrado.";$("eqn").value="";$("eqm").value=""}else m2.textContent="Não foi possível gravar o membro. Veja o aviso no topo da página."})};
+$("edc").onclick=function(){$("ed").close()};$("vc").onclick=function(){$("vw").close()};
+$("vw").addEventListener("close",function(){$("vf").src="about:blank"});
+window.addEventListener("hashchange",function(){render()});
+render();
+function localDb(){return (function(){var K='ucs-local-db',S={},Ls={};try{S=JSON.parse(localStorage.getItem(K))||{}}catch(e){}function save(){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}function snap(n){var o=S[n]||{};return{docs:Object.keys(o).map(function(i){return{id:i,data:function(){return o[i]}}})}}function fire(n){(Ls[n]||[]).forEach(function(f){f(snap(n))})}return{collection:function(n){return{doc:function(i){return{set:function(d){(S[n]=S[n]||{})[i]=d;save();fire(n);return Promise.resolve({local:1})},delete:function(){if(S[n])delete S[n][i];save();fire(n);return Promise.resolve()}}},onSnapshot:function(f){(Ls[n]=Ls[n]||[]).push(f);f(snap(n))}}}}})()}
+function remoteDb(){var S={},Ls={},last="",busy=0,wn=$("warn");
+ function snap(n){var o=S[n]||{};return{docs:Object.keys(o).map(function(i){return{id:i,data:function(){return o[i]}}})}}
+ function fire(n){(Ls[n]||[]).forEach(function(f){f(snap(n))})}
+ function msg(t){wn.textContent=t;wn.hidden=false}
+ function load(){if(busy)return;fetch(SHEET_URL).then(function(r){return r.json()}).then(function(j){if(!j||!j.ok)throw 0;var s=JSON.stringify(j.rows);wn.hidden=true;if(s===last)return;last=s;S={};j.rows.forEach(function(r){(S[r.col]=S[r.col]||{})[r.id]=r.data});["links","mapas","avisos","equipe"].forEach(fire)}).catch(function(){msg("Não foi possível ler a planilha compartilhada. Verifique a URL do Apps Script e se a implantação está liberada para qualquer pessoa.")})}
+ function post(b){busy++;var res;return fetch(SHEET_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(b)}).then(function(r){return r.json()}).then(function(j){res=j;if(!j||!j.ok)throw 0;last=""}).catch(function(){last="";msg(res&&res.error?"O Apps Script retornou um erro: "+res.error:res&&res.ok===false?"O Apps Script recusou a gravação. Verifique se a nova versão do Code.gs foi implantada na mesma implantação cuja URL está em SHEET_URL.":"Não foi possível falar com o Apps Script. Verifique a URL em SHEET_URL e se a implantação permite acesso a Qualquer pessoa.");res={ok:false}}).then(function(){busy--;return res})}
+ load();setInterval(function(){if(!document.hidden)load()},30000);
+ return{collection:function(n){return{doc:function(i){return{set:function(d){(S[n]=S[n]||{})[i]=d;fire(n);return post({op:"set",col:n,id:i,data:d})},delete:function(){if(S[n])delete S[n][i];fire(n);return post({op:"del",col:n,id:i})}}},onSnapshot:function(f){(Ls[n]=Ls[n]||[]).push(f);f(snap(n))}}}}}
+(async function(){
+ try{var C=window.claude;if(!C||!C.use)throw 0;db=await C.use("db");user=await C.use("user");if(user)uid=await user.id()}catch(e){}
+ if(!db){db=SHEET_URL?remoteDb():localDb();uid=(function(){try{var u=localStorage.getItem('ucs-uid');if(!u){u='u'+Math.random().toString(36).slice(2,10);localStorage.setItem('ucs-uid',u)}return u}catch(e){return'local'}})();if(!SHEET_URL)$('warn').hidden=false}
+ db.collection("links").onSnapshot(function(s){L={};s.docs.forEach(function(d){L[d.id]=d.data()});render("acompanhamento");render("fotos");render("sig");render("socio");render("queim");render("mapas")},function(){});
+ db.collection("mapas").onSnapshot(function(s){ALLMP=s.docs.map(function(d){var x=d.data();x.id=d.id;return x}).sort(function(a,b){return a.ts-b.ts});render("mapas")},function(){});
+ db.collection("equipe").onSnapshot(function(s){ALLEQ=s.docs.map(function(d){var x=d.data();x.id=d.id;return x}).sort(function(a,b){return String(a.nome).localeCompare(String(b.nome),"pt-BR")});render("avisos");if($("eq").open)rEq()},function(){});
+ db.collection("avisos").onSnapshot(function(s){ALLAV=s.docs.map(function(d){var x=d.data();x.id=d.id;return x}).sort(function(a,b){return b.ts-a.ts});render("avisos")},function(){});
+})();
+</script>
+</body>
+</html>
